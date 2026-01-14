@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ================= RESET ================= */
+/* ========== RESET ========== */
 * {
     margin: 0;
     padding: 0;
@@ -20,22 +20,18 @@ body {
     min-height: 100vh;
 }
 
-/* ================= HEADER ================= */
-.main-header {
+/* ========== HEADER ========== */
+header {
     background-color: #000;
-    padding: 15px 20px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
 }
 
 .logo {
-    width: 320px;
-    max-width: 80%;
-    height: auto;
+    height: 160px;
+    max-width: 90%;
 }
 
 .header-right {
@@ -44,17 +40,17 @@ body {
     gap: 15px;
 }
 
-.nav-icons button {
+nav button {
     background: #111;
     color: #ffc107;
     border: 2px solid #ffc107;
-    font-size: 20px;
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 8px 14px;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: bold;
 }
 
-.nav-icons button:hover {
+nav button:hover {
     background: #ffc107;
     color: #111;
 }
@@ -62,11 +58,6 @@ body {
 .instagram-link img {
     width: 32px;
     height: 32px;
-    transition: transform 0.3s ease;
-}
-
-.instagram-link:hover img {
-    transform: scale(1.15);
 }
 
 #language-switch {
@@ -75,10 +66,9 @@ body {
     border: 2px solid #ffc107;
     padding: 6px;
     border-radius: 6px;
-    cursor: pointer;
 }
 
-/* ================= SECCIONES ================= */
+/* ========== SECCIONES ========== */
 section {
     display: none;
     padding: 40px 20px;
@@ -86,15 +76,14 @@ section {
     margin: 40px auto;
     background: #1c1c1c;
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 section.active {
     display: block;
 }
 
-/* ================= FORMULARIO ================= */
-input, select, button {
+/* ========== FORMULARIO ========== */
+input, button {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
@@ -120,17 +109,18 @@ input {
     background: #e6b800;
 }
 
+/* ========== MENSAJES ========== */
 #mensaje-inicio {
+    text-align: center;
     background: #222;
     padding: 10px;
     border-radius: 10px;
-    text-align: center;
-    margin-bottom: 15px;
     color: #ffc107;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
-/* ================= SERVICIOS ================= */
+/* ========== SERVICIOS ========== */
 .service-item {
     background: #222;
     padding: 15px;
@@ -139,7 +129,7 @@ input {
     border-left: 5px solid #ffc107;
 }
 
-/* ================= PAGO ================= */
+/* ========== PAGO ========== */
 #payment-methods {
     background: #222;
     padding: 15px;
@@ -148,36 +138,37 @@ input {
     border-left: 5px solid #ffc107;
 }
 
-/* ================= WHATSAPP ================= */
+/* ========== WHATSAPP ========== */
 #whatsapp-float {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #25D366;
+    background-color: #25D366;
     color: #fff;
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
     cursor: pointer;
-    z-index: 200;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="main-header">
-    <img src="logo.png" alt="Safe Taxi Puerto Rico" class="logo">
+<!-- ========== HEADER ========== -->
+<header>
+    <a href="#">
+        <img src="logo.png" alt="Safe Taxi Puerto Rico" class="logo">
+    </a>
 
     <div class="header-right">
-        <nav class="nav-icons">
-            <button onclick="showSection('reserva')" title="Reservas">📅</button>
-            <button onclick="showSection('servicios')" title="Servicios">🚖</button>
+        <nav>
+            <button onclick="showSection('reserva')">Reservas</button>
+            <button onclick="showSection('servicios')">Servicios</button>
         </nav>
 
         <a href="https://www.instagram.com/gotaxipr" target="_blank" class="instagram-link">
@@ -191,9 +182,12 @@ input {
     </div>
 </header>
 
-<!-- ================= RESERVA ================= -->
+<!-- ========== RESERVA ========== -->
 <section id="reserva" class="active">
-    <div id="mensaje-inicio">Una vez recibida la información se le confirmará la reserva.</div>
+    <div id="mensaje-inicio">
+        Una vez recibida la información se le confirmará la reserva.
+    </div>
+
     <h2 id="reserva-title">Reserva tu Taxi</h2>
 
     <input id="nombre" placeholder="Nombre">
@@ -213,7 +207,7 @@ input {
     <button class="submit-btn" onclick="enviarWhatsApp()">Reservar por WhatsApp</button>
 </section>
 
-<!-- ================= SERVICIOS ================= -->
+<!-- ========== SERVICIOS ========== -->
 <section id="servicios">
     <h2 id="servicios-title">Servicios que ofrecemos</h2>
     <div class="service-item" id="serv1">🚖 Taxi estándar – Transporte rápido</div>
@@ -226,7 +220,7 @@ input {
 
 <div id="whatsapp-float" onclick="abrirWhatsApp()">💬</div>
 
-<!-- ================= SCRIPT ================= -->
+<!-- ========== JAVASCRIPT ========== -->
 <script>
 function showSection(id) {
     document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
@@ -235,7 +229,7 @@ function showSection(id) {
 
 function enviarWhatsApp() {
     const telefono = "17873080367";
-    const mensaje = `Hola, quiero reservar un taxi 🚖`;
+    const mensaje = "Hola, quiero reservar un taxi 🚖";
     window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, "_blank");
 }
 
@@ -246,7 +240,8 @@ function abrirWhatsApp() {
 function switchLanguage(lang) {
     if (lang === "en") {
         document.getElementById("reserva-title").textContent = "Book Your Taxi";
-        document.getElementById("mensaje-inicio").textContent = "Your reservation will be confirmed.";
+        document.getElementById("mensaje-inicio").textContent =
+            "Once your information is received, your reservation will be confirmed.";
         document.getElementById("servicios-title").textContent = "Services We Offer";
         document.querySelector(".submit-btn").textContent = "Book via WhatsApp";
     } else {
@@ -257,3 +252,4 @@ function switchLanguage(lang) {
 
 </body>
 </html>
+
