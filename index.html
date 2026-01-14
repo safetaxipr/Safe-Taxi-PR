@@ -1,106 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Reserva de Taxi</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        /* Estilo de fondo y fuente */
-        body {
-            font-family: Arial, sans-serif;
-            background: #111; /* Negro de fondo */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+<meta charset="UTF-8">
+<title>Taxi Express</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Contenedor principal */
-        .contenedor {
-            background: #ffc107; /* Amarillo taxi */
-            padding: 30px 20px;
-            border-radius: 15px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        }
+<style>
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Título */
-        h2 {
-            text-align: center;
-            color: #111; /* Negro */
-            margin-bottom: 20px;
-        }
+/* BODY */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #111; /* fondo negro elegante */
+    color: #fff;
+    min-height: 100vh;
+}
 
-        /* Campos de formulario */
-        input, button {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: none;
-            font-size: 16px;
-        }
+/* HEADER */
+header {
+    background-color: #000;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        input {
-            border: 2px solid #111;
-        }
+header h1 {
+    color: #ffc107; /* amarillo taxi */
+}
 
-        /* Botón WhatsApp */
-        button {
-            background: #111; /* Negro */
-            color: #ffc107; /* Amarillo */
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+nav button {
+    background: #111;
+    color: #ffc107;
+    border: 2px solid #ffc107;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-        button:hover {
-            background: #333;
-        }
-    </style>
+nav button:hover {
+    background: #ffc107;
+    color: #111;
+}
+
+/* SECCIONES */
+section {
+    display: none; /* ocultas por defecto */
+    padding: 40px 20px;
+    max-width: 500px;
+    margin: 40px auto;
+    background: #1c1c1c;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* SECCION ACTIVA */
+section.active {
+    display: block;
+}
+
+/* FORMULARIO */
+input, button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+input {
+    border: 2px solid #ffc107;
+    background: #111;
+    color: #fff;
+}
+
+button.submit-btn {
+    background: #ffc107;
+    color: #111;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.submit-btn:hover {
+    background: #e6b800;
+}
+
+/* SERVICIOS */
+.service-item {
+    background: #222;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border-left: 5px solid #ffc107;
+}
+</style>
 </head>
+
 <body>
 
-<div class="contenedor">
-    <h2>🚖 Reserva tu Taxi</h2>
+<header>
+    <h1>Taxi Express 🚖</h1>
+    <nav>
+        <button onclick="showSection('reserva')">Reservas</button>
+        <button onclick="showSection('servicios')">Servicios</button>
+    </nav>
+</header>
 
+<!-- SECCION RESERVAS -->
+<section id="reserva" class="active">
+    <h2>Reserva tu Taxi</h2>
     <input type="text" id="nombre" placeholder="Nombre" required>
     <input type="text" id="origen" placeholder="Lugar de recogida" required>
     <input type="text" id="destino" placeholder="Destino" required>
     <input type="date" id="fecha" required>
     <input type="time" id="hora" required>
+    <button class="submit-btn" onclick="enviarWhatsApp()">Reservar por WhatsApp</button>
+</section>
 
-    <button onclick="enviarWhatsApp()">Reservar por WhatsApp</button>
-</div>
-
-<script>
-function enviarWhatsApp() {
-    let nombre = document.getElementById("nombre").value;
-    let origen = document.getElementById("origen").value;
-    let destino = document.getElementById("destino").value;
-    let fecha = document.getElementById("fecha").value;
-    let hora = document.getElementById("hora").value;
-
-    if (!nombre || !origen || !destino || !fecha || !hora) {
-        alert("Por favor completa todos los campos");
-        return;
-    }
-
-    let telefono = "7873080367"; // <- TU NÚMERO con código de país
-    let mensaje = `Hola, quiero reservar un taxi 🚖%0A
-Nombre: ${nombre}%0A
-Origen: ${origen}%0A
-Destino: ${destino}%0A
-Fecha: ${fecha}%0A
-Hora: ${hora}`;
-
-    let url = `https://wa.me/${telefono}?text=${mensaje}`;
-    window.open(url, "_blank");
-}
-</script>
-
-</body>
-</html>
-
+<!-- SECCION SERVICIOS -->
+<section id="servicios">
+    <h2>Servicios que ofrecemos</h2>
+    <div class="service-item">
+        🚖 Taxi estándar – Transporte rápido dentro de la ciudad
+    </div>
+    <div class="service-item">
+        🏎️ Taxi ejecutivo – Vehículo premium para ejecutivos
+    </div>
+    <div class="service-item">
+        🧳 Taxi aeropuerto – Traslado con
