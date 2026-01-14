@@ -161,6 +161,36 @@ button.submit-btn:hover {
 }
 </style>
 </head>
+<div id="instagram-float" onclick="abrirInstagram()">📸</div>
+
+<style>
+#instagram-float {
+    position: fixed;
+    bottom: 90px; /* Ajusta según el WhatsApp */
+    right: 20px;
+    background-color: #E1306C; /* color de Instagram */
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    z-index: 100;
+}
+
+#instagram-float:hover { transform: scale(1.1); }
+</style>
+
+<script>
+function abrirInstagram() {
+    window.open("https://www.instagram.com/gotaxypr", "_blank");
+}
+</script>
 
 <body>
 
