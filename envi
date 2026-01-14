@@ -1,46 +1,32 @@
-<header class="main-header">
-    <img src="logo.png" alt="Safe Taxi Puerto Rico" class="logo">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Safe Taxi Puerto Rico</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="header-right">
-        <nav class="nav-icons">
-            <button onclick="showSection('reserva')" title="Reservas">📅</button>
-            <button onclick="showSection('servicios')" title="Servicios">🚖</button>
-        </nav>
+<style>
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        <a href="https://www.instagram.com/gotaxipr" target="_blank">
-            <img src="instagram-logo.png" alt="Instagram" class="social-icon">
-        </a>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+    min-height: 100vh;
+}
 
-        <select id="language-switch" onchange="switchLanguage(this.value)">
-            <option value="es">ES</option>
-            <option value="en">EN</option>
-        </select>
-    </div>
-<div class="header-right">
-    <nav class="nav-icons">
-        <button onclick="showSection('reserva')" title="Reservas">📅</button>
-        <button onclick="showSection('servicios')" title="Servicios">🚖</button>
-    </nav>
-
-    <a href="https://www.instagram.com/gotaxipr" 
-       target="_blank" 
-       class="instagram-link">
-        <img src="instagram-logo.png" alt="Instagram">
-    </a>
-
-    <select id="language-switch" onchange="switchLanguage(this.value)">
-        <option value="es">ES</option>
-        <option value="en">EN</option>
-    </select>
-</div>
-
-</header>
+/* ================= HEADER ================= */
 .main-header {
     background-color: #000;
     padding: 15px 20px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -73,81 +59,26 @@
     color: #111;
 }
 
-.social-icon {
-    width: 30px;
-    height: 30px;
+.instagram-link img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
 }
 
-
-</header>
-
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-/* RESET */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #111;
-    color: #fff;
-    min-height: 100vh;
+.instagram-link:hover img {
+    transform: scale(1.15);
 }
 
-/* HEADER */ <a href="https://www.instagram.com/gotaxipr" target="_blank" style="margin-left:15px;">
-    <img src="instagram-logo.png" alt="Instagram" style="width:30px; height:30px;">
-</a>
-
-header {
-    background-color: #000;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-header h1 {
-    color: #ffc107;
-    font-size: 24px;
-}
-
-nav button {
-    background: #111;
-    color: #ffc107;
-    border: 2px solid #ffc107;
-    padding: 8px 15px;
-    margin-left: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-nav button:hover {
-    background: #ffc107;
-    color: #111;
-}
-
-/* LANGUAGE SWITCH */
 #language-switch {
-    margin-left: 20px;
     background: #111;
     color: #ffc107;
     border: 2px solid #ffc107;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 6px;
+    border-radius: 6px;
     cursor: pointer;
 }
 
-/* SECCIONES */
+/* ================= SECCIONES ================= */
 section {
     display: none;
     padding: 40px 20px;
@@ -156,19 +87,14 @@ section {
     background: #1c1c1c;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease;
 }
 
 section.active {
     display: block;
-    opacity: 1;
-    transform: translateY(0);
 }
 
-/* FORMULARIO */
-input, button, select {
+/* ================= FORMULARIO ================= */
+input, select, button {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
@@ -178,25 +104,33 @@ input, button, select {
 }
 
 input {
-    border: 2px solid #ffc107;
     background: #111;
+    border: 2px solid #ffc107;
     color: #fff;
 }
 
-button.submit-btn {
+.submit-btn {
     background: #ffc107;
     color: #111;
     font-weight: bold;
-    border: none;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-button.submit-btn:hover {
+.submit-btn:hover {
     background: #e6b800;
 }
 
-/* SERVICIOS */
+#mensaje-inicio {
+    background: #222;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ffc107;
+    font-weight: bold;
+}
+
+/* ================= SERVICIOS ================= */
 .service-item {
     background: #222;
     padding: 15px;
@@ -205,40 +139,7 @@ button.submit-btn:hover {
     border-left: 5px solid #ffc107;
 }
 
-/* BOTÓN WHATSAPP FLOTANTE */
-#whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366;
-    color: white;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: 0.3s;
-    z-index: 100;
-}
-
-#whatsapp-float:hover { transform: scale(1.1); }
-
-/* MENSAJE INICIO */
-#mensaje-inicio {
-    text-align: center;
-    margin-bottom: 20px;
-    background: #222;
-    padding: 10px;
-    border-radius: 10px;
-    color: #ffc107;
-    font-weight: bold;
-}
-
-/* MÉTODOS DE PAGO */
+/* ================= PAGO ================= */
 #payment-methods {
     background: #222;
     padding: 15px;
@@ -246,183 +147,110 @@ button.submit-btn:hover {
     border-radius: 10px;
     border-left: 5px solid #ffc107;
 }
+
+/* ================= WHATSAPP ================= */
+#whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 200;
+}
 </style>
 </head>
 
 <body>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-<script>
-(function(){
-    emailjs.init("TU_PUBLIC_KEY");
-})();
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+    <img src="logo.png" alt="Safe Taxi Puerto Rico" class="logo">
 
-function enviarEmail(data) {
-    emailjs.send("TU_SERVICE_ID", "TU_TEMPLATE_ID", data)
-    .then(() => {
-        alert("Reserva enviada por correo exitosamente");
-    })
-    .catch(() => {
-        alert("Error al enviar el correo");
-    });
-}
-</script>
-
-<header>
-    <h1 id="company-name">Safe Taxi Puerto Rico 🚖</h1>
-    <div>
-        <nav>
-            <button onclick="showSection('reserva')">Reservas</button>
-            <button onclick="showSection('servicios')">Servicios</button>
+    <div class="header-right">
+        <nav class="nav-icons">
+            <button onclick="showSection('reserva')" title="Reservas">📅</button>
+            <button onclick="showSection('servicios')" title="Servicios">🚖</button>
         </nav>
+
+        <a href="https://www.instagram.com/gotaxipr" target="_blank" class="instagram-link">
+            <img src="instagram-logo.png" alt="Instagram">
+        </a>
+
         <select id="language-switch" onchange="switchLanguage(this.value)">
-            <option value="es">Español</option>
-            <option value="en">English</option>
+            <option value="es">ES</option>
+            <option value="en">EN</option>
         </select>
     </div>
 </header>
 
-<!-- SECCION RESERVAS -->
+<!-- ================= RESERVA ================= -->
 <section id="reserva" class="active">
-    <div id="mensaje-inicio">
-        Una vez recibida la información se le confirmará la reserva.
-    </div>
+    <div id="mensaje-inicio">Una vez recibida la información se le confirmará la reserva.</div>
     <h2 id="reserva-title">Reserva tu Taxi</h2>
-    <input type="text" id="nombre" placeholder="Nombre" required>
-    <input type="text" id="origen" placeholder="Lugar de recogida" required>
-    <input type="text" id="destino" placeholder="Destino" required>
-    <input type="date" id="fecha" required>
-    <input type="time" id="hora" required>
-    <input type="number" id="personas" placeholder="Cantidad de personas (opcional)">
-    <input type="text" id="aerolinea" placeholder="Aerolínea (opcional)">
-    <input type="text" id="vuelo" placeholder="Número de vuelo (opcional)">
-    
+
+    <input id="nombre" placeholder="Nombre">
+    <input id="origen" placeholder="Lugar de recogida">
+    <input id="destino" placeholder="Destino">
+    <input type="date" id="fecha">
+    <input type="time" id="hora">
+    <input id="personas" placeholder="Cantidad de personas (opcional)">
+    <input id="aerolinea" placeholder="Aerolínea (opcional)">
+    <input id="vuelo" placeholder="Número de vuelo (opcional)">
+
     <div id="payment-methods">
-    <strong>Métodos de pago / Payment methods:</strong>
-    <div style="display:flex; flex-wrap:wrap; gap:15px; margin-top:10px;">
-        <div style="display:flex; align-items:center; gap:5px;">
-            <img src="cash.png" alt="Cash" style="width:30px; height:30px;">
-            <span>Cash</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:5px;">
-            <img src="credit-card.png" alt="Credit Card" style="width:30px; height:30px;">
-            <span>Credit Card</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:5px;">
-            <img src="cashapp.png" alt="Cash App" style="width:30px; height:30px;">
-            <span>Cash App</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:5px;">
-            <img src="paypal.png" alt="PayPal" style="width:30px; height:30px;">
-            <span>PayPal</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:5px;">
-            <img src="venmo.png" alt="Venmo" style="width:30px; height:30px;">
-            <span>Venmo</span>
-        </div>
+        <strong>Métodos de pago:</strong><br>
+        Cash · Credit Card · Cash App · PayPal · Venmo
     </div>
-</div>
 
-    <button class="submit-btn" onclick="enviarWhatsApp()">Reservar por WhatsApp</button>enviarEmail({
-    nombre,
-    origen,
-    destino,
-    fecha,
-    hora,
-    personas,
-    aerolinea,
-    vuelo
-});
-
+    <button class="submit-btn" onclick="enviarWhatsApp()">Reservar por WhatsApp</button>
 </section>
 
-<!-- SECCION SERVICIOS -->
+<!-- ================= SERVICIOS ================= -->
 <section id="servicios">
     <h2 id="servicios-title">Servicios que ofrecemos</h2>
-    <div class="service-item" id="serv1">🚖 Taxi estándar – Transporte rápido dentro de la ciudad</div>
-    <div class="service-item" id="serv2">🏎️ Taxi ejecutivo – Vehículo premium para ejecutivos</div>
-    <div class="service-item" id="serv3">🧳 Taxi aeropuerto – Traslado con asistencia de maletas</div>
-    <div class="service-item" id="serv4">🚗 Taxi familiar – Espacio para hasta 6 pasajeros</div>
-    <div class="service-item" id="serv5">🌄 Tours – Transporte para excursiones y visitas turísticas</div>
-    <div class="service-item" id="serv6">⏰ Transporte 24/7 – Reservaciones en la madrugada requieren un día de anticipación</div>
+    <div class="service-item" id="serv1">🚖 Taxi estándar – Transporte rápido</div>
+    <div class="service-item" id="serv2">🏎️ Taxi ejecutivo – Servicio premium</div>
+    <div class="service-item" id="serv3">🧳 Taxi aeropuerto – Asistencia de maletas</div>
+    <div class="service-item" id="serv4">🚗 Taxi familiar – Hasta 6 pasajeros</div>
+    <div class="service-item" id="serv5">🌄 Tours – Transporte turístico</div>
+    <div class="service-item" id="serv6">⏰ Servicio 24/7 – Reservar con anticipación</div>
 </section>
 
-<!-- BOTÓN WHATSAPP FLOTANTE -->
 <div id="whatsapp-float" onclick="abrirWhatsApp()">💬</div>
 
+<!-- ================= SCRIPT ================= -->
 <script>
-// Cambiar entre secciones con animación
-function showSection(sectionId) {
-    const sections = document.querySelectorAll('section');
-    sections.forEach(sec => sec.classList.remove('active'));
-    document.getElementById(sectionId).classList.add('active');
+function showSection(id) {
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
 }
 
-// Enviar WhatsApp desde el formulario
 function enviarWhatsApp() {
-    let nombre = document.getElementById("nombre").value;
-    let origen = document.getElementById("origen").value;
-    let destino = document.getElementById("destino").value;
-    let fecha = document.getElementById("fecha").value;
-    let hora = document.getElementById("hora").value;
-    let personas = document.getElementById("personas").value;
-    let aerolinea = document.getElementById("aerolinea").value;
-    let vuelo = document.getElementById("vuelo").value;
-
-    if (!nombre || !origen || !destino || !fecha || !hora) {
-        alert("Por favor completa los campos obligatorios");
-        return;
-    }
-
-    let telefono = "7873080367"; // <- TU NÚMERO con código de país
-    let mensaje = `Hola, quiero reservar un taxi 🚖%0A
-Nombre: ${nombre}%0A
-Origen: ${origen}%0A
-Destino: ${destino}%0A
-Fecha: ${fecha}%0A
-Hora: ${hora}%0A`;
-
-    if(personas) mensaje += `Cantidad de personas: ${personas}%0A`;
-    if(aerolinea) mensaje += `Aerolínea: ${aerolinea}%0A`;
-    if(vuelo) mensaje += `Número de vuelo: ${vuelo}%0A`;
-
-    let url = `https://wa.me/${telefono}?text=${mensaje}`;
-    window.open(url, "_blank");
+    const telefono = "17873080367";
+    const mensaje = `Hola, quiero reservar un taxi 🚖`;
+    window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, "_blank");
 }
 
-// Abrir WhatsApp desde el botón flotante
 function abrirWhatsApp() {
-    let telefono = "7873080367"; // <- TU NÚMERO con código de país
-    let url = `https://wa.me/${telefono}`;
-    window.open(url, "_blank");
+    window.open("https://wa.me/17873080367", "_blank");
 }
 
-// Cambiar idioma
 function switchLanguage(lang) {
-    if(lang === "en") {
-        document.getElementById("company-name").textContent = "Safe Taxi Puerto Rico 🚖";
-        document.getElementById("reserva-title").textContent = "Book your Taxi";
-        document.getElementById("mensaje-inicio").textContent = "Once your information is received, your reservation will be confirmed.";
-        document.getElementById("servicios-title").textContent = "Services we offer";
-        document.getElementById("serv1").textContent = "🚖 Standard Taxi – Fast city transportation";
-        document.getElementById("serv2").textContent = "🏎️ Executive Taxi – Premium vehicle for executives";
-        document.getElementById("serv3").textContent = "🧳 Airport Taxi – Luggage assistance included";
-        document.getElementById("serv4").textContent = "🚗 Family Taxi – Space for up to 6 passengers";
-        document.getElementById("serv5").textContent = "🌄 Tours – Transportation for excursions and sightseeing";
-        document.getElementById("serv6").textContent = "⏰ 24/7 Transportation – Midnight reservations require 1-day notice";
-        document.getElementById("payment-methods").innerHTML = "<strong>Payment methods:</strong><br>Cash, Credit Card, Cash App, PayPal, Venmo";
+    if (lang === "en") {
+        document.getElementById("reserva-title").textContent = "Book Your Taxi";
+        document.getElementById("mensaje-inicio").textContent = "Your reservation will be confirmed.";
+        document.getElementById("servicios-title").textContent = "Services We Offer";
+        document.querySelector(".submit-btn").textContent = "Book via WhatsApp";
     } else {
-        document.getElementById("company-name").textContent = "Safe Taxi Puerto Rico 🚖";
-        document.getElementById("reserva-title").textContent = "Reserva tu Taxi";
-        document.getElementById("mensaje-inicio").textContent = "Una vez recibida la información se le confirmará la reserva.";
-        document.getElementById("servicios-title").textContent = "Servicios que ofrecemos";
-        document.getElementById("serv1").textContent = "🚖 Taxi estándar – Transporte rápido dentro de la ciudad";
-        document.getElementById("serv2").textContent = "🏎️ Taxi ejecutivo – Vehículo premium para ejecutivos";
-        document.getElementById("serv3").textContent = "🧳 Taxi aeropuerto – Traslado con asistencia de maletas";
-        document.getElementById("serv4").textContent = "🚗 Taxi familiar – Espacio para hasta 6 pasajeros";
-        document.getElementById("serv5").textContent = "🌄 Tours – Transporte para excursiones y visitas turísticas";
-        document.getElementById("serv6").textContent = "⏰ Transporte 24/7 – Reservaciones en la madrugada requieren un día de anticipación";
-        document.getElementById("payment-methods").innerHTML = "<strong>Métodos de pago / Payment methods:</strong><br>Cash, Credit Card, Cash App, PayPal, Venmo";
+        location.reload();
     }
 }
 </script>
