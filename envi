@@ -1,5 +1,5 @@
 <header class="main-header">
-    <img src="logo2.png" alt="Safe Taxi Puerto Rico" class="logo">
+    <img src="logo.png" alt="Safe Taxi Puerto Rico" class="logo">
 
     <div class="header-right">
         <nav class="nav-icons">
@@ -16,6 +16,24 @@
             <option value="en">EN</option>
         </select>
     </div>
+<div class="header-right">
+    <nav class="nav-icons">
+        <button onclick="showSection('reserva')" title="Reservas">📅</button>
+        <button onclick="showSection('servicios')" title="Servicios">🚖</button>
+    </nav>
+
+    <a href="https://www.instagram.com/gotaxipr" 
+       target="_blank" 
+       class="instagram-link">
+        <img src="instagram-logo.png" alt="Instagram">
+    </a>
+
+    <select id="language-switch" onchange="switchLanguage(this.value)">
+        <option value="es">ES</option>
+        <option value="en">EN</option>
+    </select>
+</div>
+
 </header>
 .main-header {
     background-color: #000;
