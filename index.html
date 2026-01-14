@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva de Taxi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .contenedor {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        h2 { text-align: center; color: #333; }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #25D366;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover { background: #1ebe5d; }
+    </style>
+</head>
+<body>
+<div class="contenedor">
+    <h2>🚖 Reserva tu Taxi</h2>
+    <input type="text" id="nombre" placeholder="Nombre" required>
+    <input type="text" id="origen" placeholder="Lugar de recogida" required>
+    <input type="text" id="destino" placeholder="Destino" required>
+    <input type="date" id="fecha" required>
+    <input type="time" id="hora" required>
+    <button onclick="enviarWhatsApp()">Reservar por WhatsApp</button>
+</div>
+<script>
+function enviarWhatsApp() {
+    let nombre = document.getElementById("nombre").value;
+    let origen = document.getElementById("origen").value;
+    let destino = document.getElementById("destino").value;
+    let fecha = document.getElementById("fecha").value;
+    let hora = document.getElementById("hora").value;
+
+    if (!nombre || !origen || !destino || !fecha || !hora) {
+        alert("Por favor completa todos los campos");
+        return;
+    }
+
+    let telefono = "XXXXXXXXXX"; // <- TU NÚMERO con código de país
+    let mensaje = `Hola, quiero reservar un taxi 🚖%0A
+Nombre: ${nombre}%0A
+Origen: ${origen}%0A
+Destino: ${destino}%0A
+Fecha: ${fecha}%0A
+Hora: ${hora}`;
+
+    let url = `https://wa.me/${telefono}?text=${mensaje}`;
+    window.open(url, "_blank");
+}
+</script>
+</body>
+</html>
