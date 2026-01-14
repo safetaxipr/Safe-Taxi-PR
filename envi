@@ -1,5 +1,64 @@
-<img src="logo.png" alt="Safe Taxi Puerto Rico" 
-     style="height:1000px; max-width:600%; display:block; margin:0 auto;">
+<header class="main-header">
+    <img src="logo2.png" alt="Safe Taxi Puerto Rico" class="logo">
+
+    <div class="header-right">
+        <nav class="nav-icons">
+            <button onclick="showSection('reserva')" title="Reservas">📅</button>
+            <button onclick="showSection('servicios')" title="Servicios">🚖</button>
+        </nav>
+
+        <a href="https://www.instagram.com/gotaxipr" target="_blank">
+            <img src="instagram-logo.png" alt="Instagram" class="social-icon">
+        </a>
+
+        <select id="language-switch" onchange="switchLanguage(this.value)">
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+        </select>
+    </div>
+</header>
+.main-header {
+    background-color: #000;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    width: 320px;
+    max-width: 80%;
+    height: auto;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-icons button {
+    background: #111;
+    color: #ffc107;
+    border: 2px solid #ffc107;
+    font-size: 20px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.nav-icons button:hover {
+    background: #ffc107;
+    color: #111;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+}
 
 
 </header>
@@ -173,6 +232,23 @@ button.submit-btn:hover {
 </head>
 
 <body>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init("TU_PUBLIC_KEY");
+})();
+
+function enviarEmail(data) {
+    emailjs.send("TU_SERVICE_ID", "TU_TEMPLATE_ID", data)
+    .then(() => {
+        alert("Reserva enviada por correo exitosamente");
+    })
+    .catch(() => {
+        alert("Error al enviar el correo");
+    });
+}
+</script>
 
 <header>
     <h1 id="company-name">Safe Taxi Puerto Rico 🚖</h1>
@@ -229,7 +305,17 @@ button.submit-btn:hover {
     </div>
 </div>
 
-    <button class="submit-btn" onclick="enviarWhatsApp()">Reservar por WhatsApp</button>
+    <button class="submit-btn" onclick="enviarWhatsApp()">Reservar por WhatsApp</button>enviarEmail({
+    nombre,
+    origen,
+    destino,
+    fecha,
+    hora,
+    personas,
+    aerolinea,
+    vuelo
+});
+
 </section>
 
 <!-- SECCION SERVICIOS -->
