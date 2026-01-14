@@ -5,50 +5,76 @@
     <title>Reserva de Taxi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* Estilo de fondo y fuente */
         body {
             font-family: Arial, sans-serif;
-            background: #f2f2f2;
+            background: #111; /* Negro de fondo */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
+
+        /* Contenedor principal */
         .contenedor {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
+            background: #ffc107; /* Amarillo taxi */
+            padding: 30px 20px;
+            border-radius: 15px;
             width: 100%;
             max-width: 400px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
-        h2 { text-align: center; color: #333; }
+
+        /* Título */
+        h2 {
+            text-align: center;
+            color: #111; /* Negro */
+            margin-bottom: 20px;
+        }
+
+        /* Campos de formulario */
         input, button {
             width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background: #25D366;
-            color: white;
-            font-size: 16px;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
             border: none;
-            cursor: pointer;
+            font-size: 16px;
         }
-        button:hover { background: #1ebe5d; }
+
+        input {
+            border: 2px solid #111;
+        }
+
+        /* Botón WhatsApp */
+        button {
+            background: #111; /* Negro */
+            color: #ffc107; /* Amarillo */
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #333;
+        }
     </style>
 </head>
 <body>
+
 <div class="contenedor">
     <h2>🚖 Reserva tu Taxi</h2>
+
     <input type="text" id="nombre" placeholder="Nombre" required>
     <input type="text" id="origen" placeholder="Lugar de recogida" required>
     <input type="text" id="destino" placeholder="Destino" required>
     <input type="date" id="fecha" required>
     <input type="time" id="hora" required>
+
     <button onclick="enviarWhatsApp()">Reservar por WhatsApp</button>
 </div>
+
 <script>
 function enviarWhatsApp() {
     let nombre = document.getElementById("nombre").value;
@@ -74,5 +100,7 @@ Hora: ${hora}`;
     window.open(url, "_blank");
 }
 </script>
+
 </body>
 </html>
+
