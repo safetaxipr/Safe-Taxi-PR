@@ -32,6 +32,7 @@
     <a href="#" onclick="showPage('reservas')" data-es="Reservas" data-en="Reservations"></a>
     <a href="#" onclick="showPage('servicios')" data-es="Servicios" data-en="Services"></a>
     <a href="https://instagram.com/gotaxipr" target="_blank">@gotaxipr</a>
+    <label style="color:#FFD700; font-weight:bold; margin-right:8px;" data-es="Idioma" data-en="Language"></label>
     <select onchange="setLang(this.value)">
       <option value="es">ES</option>
       <option value="en">EN</option>
@@ -42,7 +43,7 @@
 <main>
 <section id="reservas">
   <h2 data-es="Formulario de Reserva" data-en="Reservation Form"></h2>
-  <p data-es="Reservaciones en la madrugada requieren 1 día de anticipación." data-en="Late night reservations require 1 day advance notice."></p>
+  <p data-es="🔔 Reservaciones en la madrugada (antes de las 6:00 AM) requieren 1 día de anticipación." data-en="🔔 Early morning reservations (before 6:00 AM) require at least 1 day advance notice."></p>
 
   <form onsubmit="sendWhatsApp(); return false;">
     <label data-es="Nombre" data-en="First Name"></label>
@@ -58,13 +59,13 @@
     <input type="time" id="hora" placeholder="Hora / Time" required>
 
     <label data-es="Lugar de recogido" data-en="Pickup Location"></label>
-    <input id="recogido" placeholder="Lugar de recogido / Pickup
+    <input id="recogido" placeholder="Lugar de recogido / Pickup location" required>
 
     <label data-es="Línea aérea" data-en="Airline"></label>
-    <input id="aerolinea">
+    <input id="aerolinea" placeholder="Línea aérea / Airline">
 
     <label data-es="Número de vuelo" data-en="Flight Number"></label>
-    <input id="vuelo">
+    <input id="vuelo" placeholder="Número de vuelo / Flight number">
 
     <button type="submit" data-es="Enviar Reserva por WhatsApp" data-en="Send Reservation via WhatsApp"></button>
   </form>
