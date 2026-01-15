@@ -2,40 +2,26 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Safe Taxi | Reservas</title>
+  <title>Safe Taxi | Servicios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body { font-family: Arial, sans-serif; background:#f5f5f5; margin:0; }
     header { background:#000; color:#FFD700; padding:20px; text-align:center; }
-    nav { margin-top:10px; }
     nav a { color:#FFD700; margin:0 10px; text-decoration:none; font-weight:bold; }
-    main { max-width:700px; margin:30px auto; background:#fff; padding:25px; border-radius:8px; }
-    h2, h3 { text-align:center; color:#000; }
-    label { display:block; margin-top:12px; font-weight:bold; }
-    input { width:100%; padding:8px; margin-top:5px; }
-    button { margin-top:20px; width:100%; padding:12px; background:#000; color:#FFD700; border:none; font-size:16px; cursor:pointer; }
-    .payments { margin-top:25px; text-align:center; }
-    .payments img { height:35px; margin:8px; }
-    .hidden { display:none; }
-    footer { background:#000; color:#FFD700; text-align:center; padding:15px; font-size:14px; }
-    select { padding:5px; }
+    main { max-width:800px; margin:30px auto; background:#fff; padding:30px; border-radius:8px; }
+    h2, h3 { color:#000; }
+    p { line-height:1.6; }
+    footer { background:#000; color:#FFD700; text-align:center; padding:15px; margin-top:40px; }
+    button { background:#000; color:#FFD700; border:none; padding:10px 15px; margin-top:10px; cursor:pointer; }
   </style>
 </head>
 <body>
 
 <header>
-  <div style="text-align:center;">
-    <img src="logo.png" alt="Safe Taxi Logo" style="max-width:540px; margin-bottom:10px;">
-  </div>
-    <p data-es="Reserva tu taxi de forma segura y rápida" data-en="Book your taxi safely and quickly"></p>
+  <img src="logo.png" alt="Safe Taxi Logo" style="max-width:300px;"><br><br>
   <nav>
-    <a href="#" onclick="showPage('reservas')" data-es="Reservas" data-en="Reservations"></a>
-    <a href="services.html" data-es="Servicios" data-en="Services">Servicios</a>
-    <a href="https://instagram.com/gotaxipr" target="_blank" style="display:inline-flex; align-items:center; gap:6px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:20px; height:20px;">
-      @gotaxipr
-    </a>
-    <label style="color:#FFD700; font-weight:bold; margin-right:8px;" data-es="Idioma" data-en="Language"></label>
+    <a href="index.html" data-es="Reservas" data-en="Reservations"></a>
+    <a href="services.html" data-es="Servicios" data-en="Services"></a>
     <select onchange="setLang(this.value)">
       <option value="es">ES</option>
       <option value="en">EN</option>
@@ -44,105 +30,31 @@
 </header>
 
 <main>
-<section id="reservas">
-  <h2 data-es="Formulario de Reserva" data-en="Reservation Form"></h2>
-  <p data-es="🔔 Reservaciones en la madrugada (antes de las 6:00 AM) requieren 1 día de anticipación." data-en="🔔 Early morning reservations (before 6:00 AM) require at least 1 day advance notice."></p>
-
-  <form onsubmit="sendWhatsApp(); return false;">
-    <label data-es="Nombre" data-en="First Name"></label>
-    <input id="nombre" placeholder="Nombre / First Name" required>
-
-    <label data-es="Apellido" data-en="Last Name"></label>
-    <input id="apellido" placeholder="Apellido / Last Name" required>
-
-    <label data-es="Fecha de recogido" data-en="Pickup Date"></label>
-    <input type="date" id="fecha" placeholder="Fecha / Date" required>
-
-    <label data-es="Hora de recogido" data-en="Pickup Time"></label>
-    <input type="time" id="hora" placeholder="Hora / Time" required>
-
-    <label data-es="Lugar de recogido" data-en="Pickup Location"></label>
-    <input id="recogido" placeholder="Lugar de recogido / Pickup location" required>
-
-    <label data-es="Línea aérea" data-en="Airline"></label>
-    <input id="aerolinea" placeholder="Línea aérea / Airline">
-
-    <label data-es="Número de vuelo" data-en="Flight Number"></label>
-    <input id="vuelo" placeholder="Número de vuelo / Flight number">
-
-    <button type="submit" data-es="Enviar Reserva por WhatsApp" data-en="Send Reservation via WhatsApp"></button>
-    <p style="text-align:center; margin-top:10px; font-weight:bold;" data-es="Contacto WhatsApp: +1 787-308-0367" data-en="WhatsApp Contact: +1 787-308-0367"></p>
-  </form>
-
-  <div class="payments">
-    <h3 data-es="Métodos de Pago" data-en="Payment Methods"></h3>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Credit Card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Cash_App_Logo.svg" alt="Cash App">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Venmo_logo.svg" alt="Venmo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
-  </div>
-</section>
-
-<section id="servicios" class="hidden">
   <h2 data-es="Nuestros Servicios" data-en="Our Services"></h2>
 
   <h3 data-es="Taxi Lujoso" data-en="Luxury Taxi"></h3>
-  <p data-es="Vehículos cómodos y elegantes ideales para viajes ejecutivos, aeropuerto y ocasiones especiales." data-en="Comfortable and elegant vehicles ideal for executive trips, airport transfers, and special occasions."></p>
+  <p data-es="Vehículos cómodos y elegantes ideales para aeropuerto, viajes ejecutivos y ocasiones especiales." data-en="Comfortable and elegant vehicles ideal for airport transfers, executive travel, and special occasions."></p>
+  <a href="index.html"><button data-es="Reservar ahora" data-en="Book now"></button></a>
 
   <h3 data-es="Taxi Familiar" data-en="Family Taxi"></h3>
-  <p data-es="Espacio amplio y seguro para familias, equipaje y viajes grupales." data-en="Spacious and safe vehicles for families, luggage, and group travel."></p>
+  <p data-es="Vehículos amplios y seguros para familias, grupos y equipaje." data-en="Spacious and safe vehicles for families, groups, and luggage."></p>
+  <a href="index.html"><button data-es="Reservar ahora" data-en="Book now"></button></a>
 
   <h3 data-es="Servicio Privado" data-en="Private Service"></h3>
-  <p data-es="Servicio exclusivo puerta a puerta con atención personalizada y máxima privacidad." data-en="Exclusive door-to-door service with personalized attention and maximum privacy."></p>
-</section>
+  <p data-es="Servicio exclusivo puerta a puerta con atención personalizada y privacidad total." data-en="Exclusive door-to-door service with personalized attention and full privacy."></p>
+  <a href="index.html"><button data-es="Reservar ahora" data-en="Book now"></button></a>
 </main>
 
 <footer>
-  © 2026 Safe Taxi
+  <p data-es="Contacto WhatsApp: +1 787-308-0367" data-en="WhatsApp Contact: +1 787-308-0367"></p>
 </footer>
 
 <script>
-  function showPage(page) {
-    document.getElementById('reservas').classList.add('hidden');
-    document.getElementById('servicios').classList.add('hidden');
-    document.getElementById(page).classList.remove('hidden');
-  }
-
   function setLang(lang) {
     document.querySelectorAll('[data-es]').forEach(el => {
       el.textContent = el.getAttribute(lang === 'es' ? 'data-es' : 'data-en');
     });
   }
-
-  function sendWhatsApp() {
-    const phone = '17873080367';
-    const selectedDate = new Date(fecha.value);
-    const today = new Date();
-    today.setHours(0,0,0,0);
-
-    const isEarlyMorning = hora.value < '06:00';
-    const diffDays = Math.floor((selectedDate - today) / (1000 * 60 * 60 * 24));
-
-    if (isEarlyMorning && diffDays < 1) {
-      alert(currentLang === 'es'
-        ? 'Los recogidos en la madrugada requieren al menos 1 día de anticipación.'
-        : 'Early morning pickups require at least 1 day advance notice.');
-      return;
-    }
-
-() {
-    const phone = '17873080367';
-    const message = `Safe Taxi Reservation%0A
-Nombre: ${nombre.value}%0A
-Apellido: ${apellido.value}%0A
-Fecha: ${fecha.value}%0A
-Hora: ${hora.value}%0A
-Recogido: ${recogido.value}%0A
-Aerolínea: ${aerolinea.value}%0A
-Vuelo: ${vuelo.value}`;
-    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-  }
-
   setLang('es');
 </script>
 
