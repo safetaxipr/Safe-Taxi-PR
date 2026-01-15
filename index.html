@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Safe Taxi PR</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>Safe Taxi | Reservas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; }
-    header { background:#111; color:#fff; padding:15px; }
-    nav a { color:#fff; margin-right:15px; text-decoration:none; }
-    section { padding:20px; }
+    body { font-family: Arial, sans-serif; background:#f5f5f5; margin:0; }
+    header { background:#000; color:#FFD700; padding:20px; text-align:center; }
+    nav { margin-top:10px; }
+    nav a { color:#FFD700; margin:0 10px; text-decoration:none; font-weight:bold; }
+    main { max-width:700px; margin:30px auto; background:#fff; padding:25px; border-radius:8px; }
+    h2, h3 { text-align:center; color:#000; }
+    label { display:block; margin-top:12px; font-weight:bold; }
+    input { width:100%; padding:8px; margin-top:5px; }
+    button { margin-top:20px; width:100%; padding:12px; background:#000; color:#FFD700; border:none; font-size:16px; cursor:pointer; }
+    .payments { margin-top:25px; text-align:center; }
+    .payments img { height:35px; margin:8px; }
     .hidden { display:none; }
-    .payments img { height:40px; margin-right:10px; }
-    footer { background:#f2f2f2; padding:15px; text-align:center; }
-    button { padding:10px 15px; }
-    label { display:block; margin-top:10px; }
-    input, select { width:100%; padding:8px; }
+    footer { background:#000; color:#FFD700; text-align:center; padding:15px; font-size:14px; }
+    select { padding:5px; }
   </style>
 </head>
 <body>
+
 <header>
+  <h1>Safe Taxi</h1>
+  <p data-es="Reserva tu taxi de forma segura y rápida" data-en="Book your taxi safely and quickly"></p>
   <nav>
-    <a href="#" onclick="showPage('reservations')" data-es="Reservaciones" data-en="Reservations"></a>
-    <a href="#" onclick="showPage('services')" data-es="Servicios" data-en="Services"></a>
+    <a href="#" onclick="showPage('reservas')" data-es="Reservas" data-en="Reservations"></a>
+    <a href="#" onclick="showPage('servicios')" data-es="Servicios" data-en="Services"></a>
     <a href="https://instagram.com/gotaxipr" target="_blank">Instagram</a>
     <select onchange="setLang(this.value)">
       <option value="es">ES</option>
@@ -30,42 +37,43 @@
   </nav>
 </header>
 
-<section id="reservations">
-  <h2 data-es="Reservación de Taxi" data-en="Taxi Reservation"></h2>
+<main>
+<section id="reservas">
+  <h2 data-es="Formulario de Reserva" data-en="Reservation Form"></h2>
   <p data-es="Reservaciones en la madrugada requieren 1 día de anticipación." data-en="Late night reservations require 1 day advance notice."></p>
+
   <form onsubmit="sendWhatsApp(); return false;">
-    <label data-es="Nombre y Apellido" data-en="Full Name"></label>
-    <input id="name" required />
+    <label data-es="Nombre" data-en="First Name"></label>
+    <input id="nombre" required>
+
+    <label data-es="Apellido" data-en="Last Name"></label>
+    <input id="apellido" required>
 
     <label data-es="Fecha de recogido" data-en="Pickup Date"></label>
-    <input type="date" id="date" required />
+    <input type="date" id="fecha" required>
 
     <label data-es="Lugar de recogido" data-en="Pickup Location"></label>
-    <input id="pickup" required />
+    <input id="recogido" required>
 
-    <label data-es="Destino" data-en="Destination"></label>
-    <input id="destination" required />
-
-    <label data-es="Aerolínea" data-en="Airline"></label>
-    <input id="airline" />
+    <label data-es="Línea aérea" data-en="Airline"></label>
+    <input id="aerolinea">
 
     <label data-es="Número de vuelo" data-en="Flight Number"></label>
-    <input id="flight" />
+    <input id="vuelo">
 
-    <br/><br/>
-    <button type="submit" data-es="Enviar por WhatsApp" data-en="Send via WhatsApp"></button>
+    <button type="submit" data-es="Enviar Reserva por WhatsApp" data-en="Send Reservation via WhatsApp"></button>
   </form>
 
-  <h3 data-es="Métodos de Pago" data-en="Payment Methods"></h3>
   <div class="payments">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Cash_App_Logo.svg" alt="Cash" />
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Venmo_logo.svg" alt="Venmo" />
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" />
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Credit Card" />
+    <h3 data-es="Métodos de Pago" data-en="Payment Methods"></h3>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Credit Card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Cash_App_Logo.svg" alt="Cash App">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Venmo_logo.svg" alt="Venmo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
   </div>
 </section>
 
-<section id="services" class="hidden">
+<section id="servicios" class="hidden">
   <h2 data-es="Nuestros Servicios" data-en="Our Services"></h2>
   <ul>
     <li data-es="Taxi Lujoso" data-en="Luxury Taxi"></li>
@@ -73,33 +81,39 @@
     <li data-es="Servicio Privado" data-en="Private Service"></li>
   </ul>
 </section>
+</main>
 
 <footer>
-  <p>Safe Taxi PR</p>
+  © 2026 Safe Taxi
 </footer>
 
 <script>
-  let currentLang = 'es';
-
   function showPage(page) {
-    document.getElementById('reservations').classList.add('hidden');
-    document.getElementById('services').classList.add('hidden');
+    document.getElementById('reservas').classList.add('hidden');
+    document.getElementById('servicios').classList.add('hidden');
     document.getElementById(page).classList.remove('hidden');
   }
 
   function setLang(lang) {
-    currentLang = lang;
     document.querySelectorAll('[data-es]').forEach(el => {
       el.textContent = el.getAttribute(lang === 'es' ? 'data-es' : 'data-en');
     });
   }
 
   function sendWhatsApp() {
-    const msg = `Nombre: ${name.value}%0AFecha: ${date.value}%0ARecogido: ${pickup.value}%0ADestino: ${destination.value}%0AAerolínea: ${airline.value}%0AVuelo: ${flight.value}`;
-    window.open(`https://wa.me/17873080367?text=${msg}`, '_blank');
+    const phone = '17873080367';
+    const message = `Safe Taxi Reservation%0A
+Nombre: ${nombre.value}%0A
+Apellido: ${apellido.value}%0A
+Fecha: ${fecha.value}%0A
+Recogido: ${recogido.value}%0A
+Aerolínea: ${aerolinea.value}%0A
+Vuelo: ${vuelo.value}`;
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
   }
 
   setLang('es');
 </script>
+
 </body>
 </html>
