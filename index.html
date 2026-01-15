@@ -24,6 +24,9 @@
 <body>
 
 <header>
+  <div style="text-align:center;">
+    <img src="logo2.png" alt="Safe Taxi Logo" style="max-width:180px; margin-bottom:10px;">
+  </div>
   <h1>Safe Taxi</h1>
   <p data-es="Reserva tu taxi de forma segura y rápida" data-en="Book your taxi safely and quickly"></p>
   <nav>
@@ -51,6 +54,9 @@
 
     <label data-es="Fecha de recogido" data-en="Pickup Date"></label>
     <input type="date" id="fecha" required>
+
+    <label data-es="Hora de recogido" data-en="Pickup Time"></label>
+    <input type="time" id="hora" required>
 
     <label data-es="Lugar de recogido" data-en="Pickup Location"></label>
     <input id="recogido" required>
@@ -102,10 +108,27 @@
 
   function sendWhatsApp() {
     const phone = '17873080367';
+    const selectedDate = new Date(fecha.value);
+    const today = new Date();
+    today.setHours(0,0,0,0);
+
+    const isEarlyMorning = hora.value < '06:00';
+    const diffDays = Math.floor((selectedDate - today) / (1000 * 60 * 60 * 24));
+
+    if (isEarlyMorning && diffDays < 1) {
+      alert(currentLang === 'es'
+        ? 'Los recogidos en la madrugada requieren al menos 1 día de anticipación.'
+        : 'Early morning pickups require at least 1 day advance notice.');
+      return;
+    }
+
+() {
+    const phone = '17873080367';
     const message = `Safe Taxi Reservation%0A
 Nombre: ${nombre.value}%0A
 Apellido: ${apellido.value}%0A
 Fecha: ${fecha.value}%0A
+Hora: ${hora.value}%0A
 Recogido: ${recogido.value}%0A
 Aerolínea: ${aerolinea.value}%0A
 Vuelo: ${vuelo.value}`;
